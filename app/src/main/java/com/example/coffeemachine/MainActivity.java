@@ -3,7 +3,7 @@ package com.example.coffeemachine;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+//First app
 public class MainActivity extends AppCompatActivity {
 
     @Override
