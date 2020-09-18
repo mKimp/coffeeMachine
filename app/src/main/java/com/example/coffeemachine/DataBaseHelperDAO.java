@@ -2,10 +2,15 @@ package com.example.coffeemachine;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHelperDAO extends SQLiteOpenHelper {
 
@@ -48,5 +53,30 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    public List<CoffeeModel> viewAll (){
+        List<CoffeeModel> list = new ArrayList<>();
+
+        String query = "SELECT * FROM " + INGREDIENTS;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                String date = cursor.getString(5);
+                String coffeeBrand = cursor.getString(1);
+                String coffeeMilk = cursor.getString(3);
+                String coffeeBrew = cursor.getString(2);
+                String notes = cursor.getString(4);
+                CoffeeModel model = new CoffeeModel(date,coffeeBrand,coffeeMilk,coffeeBrew, notes);
+                list.add(model);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+
     }
 }

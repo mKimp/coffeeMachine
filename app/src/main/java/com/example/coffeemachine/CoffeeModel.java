@@ -1,5 +1,7 @@
 package com.example.coffeemachine;
 
+import androidx.annotation.NonNull;
+
 public class CoffeeModel {
 
 
@@ -16,6 +18,18 @@ public class CoffeeModel {
         this.coffeeBrew = coffeeBrew;
         this.notes = notes;
     }
+
+    @Override
+    public String toString() {
+        return "CoffeeModel{" +
+                "date='" + date + '\'' +
+                ", coffeeBrand='" + coffeeBrand + '\'' +
+                ", coffeeMilk='" + coffeeMilk + '\'' +
+                ", coffeeBrew='" + coffeeBrew + '\'' +
+                ", notes='" + notes + '\'' +
+                '}';
+    }
+
 
     public String getDate() {
         return date;

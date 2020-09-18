@@ -8,6 +8,8 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,15 +19,18 @@ import java.util.Calendar;
 public class formData extends AppCompatActivity {
 
     private EditText mDate;
-    private EditText mBrand;
-    private EditText mBrew;
-    private EditText mMilk;
+    private AutoCompleteTextView mBrand;
+    private AutoCompleteTextView mBrew;
+    private AutoCompleteTextView mMilk;
     private EditText mNote;
 
     private String date;
     //Calender
     int year, month, day;
     private DatePickerDialog.OnDateSetListener mDatePickerListener;
+
+    //brand of coffee array
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,17 @@ public class formData extends AppCompatActivity {
         mBrew = findViewById(R.id.editTextBrew);
         mMilk = findViewById(R.id.editTextMilk);
         mNote = findViewById(R.id.editTextTextMultiLine);
+        String [] coffeeBrand = getResources().getStringArray(R.array.countriesBrand);
+        String [] measurementList = getResources().getStringArray(R.array.brewList);
+
+        //for ounces in coffee brew and milk
+        ArrayAdapter<String> measurementAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, measurementList);
+        mBrew.setAdapter(measurementAdapter);
+        mMilk.setAdapter(measurementAdapter);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, coffeeBrand);
+        mBrand.setAdapter(adapter);
 
 
         mDate.setOnClickListener(new View.OnClickListener() {

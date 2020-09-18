@@ -4,9 +4,38 @@
     <string name="your_cup_of_coffee_data_is_none">Your Cup of Coffee Data is none</string>
     <string name="date">Date</string>
     <string name="coffee_brand">Coffee Brand</string>
-    <string name="brew_level">Brew Level</string>
-    <string name="milk_level">Milk Level</string>
+    <string name="brew_level">Brew Level (Ounces)</string>
+    <string name="milk_level">Milk Level (Ounces)</string>
     <string name="notes">Notes</string>
     <string name="add">Add</string>
     <string name="ounces">Ounces</string>
+    <string name="listTitle">Your daily data of expresso</string>
+
+    <string-array name="countriesBrand">
+        <item> Tully </item>
+        <item> Starbucks</item>
+        <item>Cafe Bustelo</item>
+        <item>Cafe Du Monde</item>
+        <item>Caribou </item>
+        <item> Dunkin’ Donuts</item>
+        <item>Folgers </item>
+        <item>Gevalia </item>
+        <item> Green Mountain Coffee Roasters </item>
+        <item> Jacob’s Coffee</item>
+        <item>Keurig </item>
+        <item> Kirkland Signature </item>
+        <item> Maxwell House </item>
+        <item> McCafe (McDonalds Brand) </item>
+        <item> Peet’s Coffee </item>
+        <item> Yuban</item>
+    </string-array>
+
+    <string-array name="brewList">
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+    </string-array>
 </resources>

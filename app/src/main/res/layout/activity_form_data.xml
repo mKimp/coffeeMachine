@@ -2,124 +2,84 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/labelOunces"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".formData">
+    tools:context=".formData"
+     >
 
 
-    <EditText
-        android:id="@+id/editTextDate"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:focusable="true"
-        android:focusableInTouchMode="false"
-        android:hint="@string/date"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-    <EditText
-        android:id="@+id/editTextCoffeeBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/coffee_brand"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBrew"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextBrew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/brew_level"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextMilk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCoffeeBrand" />
-
-    <EditText
-        android:id="@+id/editTextMilk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/milk_level"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBrew" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/notes"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMilk" />
-
-    <Button
-        android:id="@+id/btnAddData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="formSubmit"
-        android:text="@string/add"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:hint="@string/date"
+            android:inputType="date"
+            />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <AutoCompleteTextView
+            android:id="@+id/editTextCoffeeBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:completionThreshold="1"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/coffee_brand"
+            android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/labelMilk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ounces"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextMilk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextMilk"
-        app:layout_constraintTop_toTopOf="@+id/editTextMilk" />
+        <AutoCompleteTextView
+            android:id="@+id/editTextBrew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:completionThreshold="1"
+            android:ems="10"
+            android:hint="@string/brew_level"
+            android:inputType="textPersonName"
+            android:completionHint="@string/ounces"/>
 
-    <TextView
-        android:id="@+id/labelBrew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ounces"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextBrew"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextBrew"
-        app:layout_constraintTop_toTopOf="@+id/editTextBrew" />
+        <AutoCompleteTextView
+            android:id="@+id/editTextMilk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:completionThreshold="1"
+            android:ems="10"
+            android:hint="@string/milk_level"
+            android:inputType="textPersonName"
+            android:completionHint="@string/ounces"/>
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/notes" />
+
+        <Button
+            android:id="@+id/btnAddData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="formSubmit"
+            android:text="@string/add" />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
