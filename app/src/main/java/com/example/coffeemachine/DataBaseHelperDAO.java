@@ -22,9 +22,10 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
     private static final String COLUMN_MILK = "MILK ";
     private static final String COLUMN_NOTE = "NOTE ";
     private static final String COLUMN_DATE = "DATE ";
+    List<CoffeeModel> list;
 
     public DataBaseHelperDAO(@Nullable Context context) {
-        super(context, "ingredient.db", null, 1);
+        super(context, "coffee.db", null, 1);
     }
 
     @Override
@@ -42,6 +43,7 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+
         cv.put(COLUMN_BRAND, cfModel.getCoffeeBrand());
         cv.put(COLUMN_BREW, cfModel.getCoffeeBrew());
         cv.put(COLUMN_MILK, cfModel.getCoffeeMilk());
@@ -56,7 +58,7 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
     }
 
     public List<CoffeeModel> viewAll (){
-        List<CoffeeModel> list = new ArrayList<>();
+        list = new ArrayList<>();
 
         String query = "SELECT * FROM " + INGREDIENTS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -65,18 +67,34 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()){
             do {
+                int id = cursor.getInt(0);
                 String date = cursor.getString(5);
                 String coffeeBrand = cursor.getString(1);
                 String coffeeMilk = cursor.getString(3);
                 String coffeeBrew = cursor.getString(2);
                 String notes = cursor.getString(4);
-                CoffeeModel model = new CoffeeModel(date,coffeeBrand,coffeeMilk,coffeeBrew, notes);
+                CoffeeModel model = new CoffeeModel(id, date,coffeeBrand,coffeeMilk,coffeeBrew, notes);
                 list.add(model);
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
         return list;
-
     }
+
+    public boolean DeleteOne(CoffeeModel md){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + INGREDIENTS + " WHERE " + ID + " = " + md.getId();
+        //find customer Model
+
+        Cursor  cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

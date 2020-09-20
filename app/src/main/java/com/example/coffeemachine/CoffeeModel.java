@@ -2,16 +2,18 @@ package com.example.coffeemachine;
 
 import androidx.annotation.NonNull;
 
-public class CoffeeModel {
+public class CoffeeModel   {
 
 
+    int id;
     String date;
     String coffeeBrand;
     String coffeeMilk;
     String coffeeBrew;
     String notes;
 
-    public CoffeeModel(String date, String coffeeBrand, String coffeeMilk, String coffeeBrew, String notes) {
+    public CoffeeModel(int id, String date, String coffeeBrand, String coffeeMilk, String coffeeBrew, String notes) {
+        this.id = id;
         this.date = date;
         this.coffeeBrand = coffeeBrand;
         this.coffeeMilk = coffeeMilk;
@@ -22,14 +24,14 @@ public class CoffeeModel {
     @Override
     public String toString() {
         return "CoffeeModel{" +
-                "date='" + date + '\'' +
+                "id=" + id +
+                ", date='" + date + '\'' +
                 ", coffeeBrand='" + coffeeBrand + '\'' +
                 ", coffeeMilk='" + coffeeMilk + '\'' +
                 ", coffeeBrew='" + coffeeBrew + '\'' +
                 ", notes='" + notes + '\'' +
                 '}';
     }
-
 
     public String getDate() {
         return date;
@@ -70,4 +72,13 @@ public class CoffeeModel {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

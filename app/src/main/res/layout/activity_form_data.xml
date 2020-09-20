@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".formData"
+    android:background="@drawable/coffee"
      >
 
 
@@ -16,7 +17,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <EditText
             android:id="@+id/editTextDate"
@@ -28,6 +30,7 @@
             android:focusableInTouchMode="false"
             android:hint="@string/date"
             android:inputType="date"
+            android:textStyle="bold"
             />
 
         <AutoCompleteTextView
@@ -38,7 +41,8 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/coffee_brand"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textStyle="bold"/>
 
         <AutoCompleteTextView
             android:id="@+id/editTextBrew"
@@ -49,7 +53,8 @@
             android:ems="10"
             android:hint="@string/brew_level"
             android:inputType="textPersonName"
-            android:completionHint="@string/ounces"/>
+            android:completionHint="@string/ounces"
+            android:textStyle="bold"/>
 
         <AutoCompleteTextView
             android:id="@+id/editTextMilk"
@@ -60,7 +65,8 @@
             android:ems="10"
             android:hint="@string/milk_level"
             android:inputType="textPersonName"
-            android:completionHint="@string/ounces"/>
+            android:completionHint="@string/ounces"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/editTextTextMultiLine"
@@ -69,7 +75,8 @@
             android:autofillHints=""
             android:ems="10"
             android:gravity="start|top"
-            android:hint="@string/notes" />
+            android:hint="@string/notes"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btnAddData"

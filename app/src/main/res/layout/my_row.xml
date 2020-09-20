@@ -21,6 +21,42 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <TextView
+                android:id="@+id/labelDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_completed"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_below="@+id/brandtxtview"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/labelbrew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_below="@+id/datetxtview"
+                android:text="@string/brew_level_result"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/labelMilk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/milk_level_result"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_below="@+id/brewtxtview"
+                android:layout_marginStart="10dp" />
+            <TextView
+                android:id="@+id/labelNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/milktxtview"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_marginStart="10dp"
+                android:text="@string/notes_result" />
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -28,21 +64,27 @@
                 android:src="@drawable/coffe" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/IDtxtview"
+                android:layout_toEndOf="@id/imageView"
+                android:layout_margin="10dp" />
+
+            <TextView
                 android:id="@+id/notetxtview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/milktxtview"
-                android:layout_toEndOf="@+id/imageView"
+                android:layout_toEndOf="@+id/labelNote"
                 android:layout_marginStart="10dp"
-                android:text="Extra Info" />
+                />
 
             <TextView
                 android:id="@+id/brewtxtview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/imageView"
+                android:layout_toEndOf="@+id/labelbrew"
                 android:layout_below="@+id/datetxtview"
-                android:text="Amount of brew coffee"
                 android:layout_marginStart="10dp"/>
 
             <TextView
@@ -50,46 +92,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Amount of milk"
-                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/labelMilk"
                 android:layout_below="@+id/brewtxtview"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginStart="10dp" />
 
             <TextView
                 android:id="@+id/brandtxtview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brand"
+                android:text="@string/coffee_brand"
                 android:textSize="24sp"
                 android:layout_toEndOf="@+id/imageView"
                 android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginStart="10dp" />
 
             <TextView
                 android:id="@+id/datetxtview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Completed on Date"
-                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/labelDate"
                 android:layout_below="@+id/brandtxtview"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginStart="10dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/measurementLabel"
-                android:layout_toEndOf="@+id/brewtxtview"
-                android:text="@string/ounces"
-                android:layout_below="@+id/datetxtview"
-                android:layout_marginStart="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/measurementLabelMilk"
-                android:layout_toEndOf="@+id/milktxtview"
-                android:layout_below="@+id/brewtxtview"
-                android:text="@string/ounces"
-                android:layout_marginStart="5dp"/>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

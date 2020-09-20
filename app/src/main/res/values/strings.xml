@@ -10,6 +10,11 @@
     <string name="add">Add</string>
     <string name="ounces">Ounces</string>
     <string name="listTitle">Your daily data of expresso</string>
+    <string name="id">ID</string>
+    <string name="date_completed">Date Completed:</string>
+    <string name="brew_level_result">Brew Level (Ounces):</string>
+    <string name="milk_level_result">Milk Level (Ounces):</string>
+    <string name="notes_result">Notes:</string>
 
     <string-array name="countriesBrand">
         <item> Tully </item>
@@ -31,11 +36,12 @@
     </string-array>
 
     <string-array name="brewList">
+        <item>0.0</item>
         <item>0.5</item>
-        <item>1</item>
+        <item>1.0</item>
         <item>1.5</item>
-        <item>2</item>
+        <item>2.0</item>
         <item>2.5</item>
-        <item>3</item>
+        <item>3.0</item>
     </string-array>
 </resources>

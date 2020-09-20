@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -42,6 +43,7 @@ public class formData extends AppCompatActivity {
         mBrew = findViewById(R.id.editTextBrew);
         mMilk = findViewById(R.id.editTextMilk);
         mNote = findViewById(R.id.editTextTextMultiLine);
+
         String [] coffeeBrand = getResources().getStringArray(R.array.countriesBrand);
         String [] measurementList = getResources().getStringArray(R.array.brewList);
 
@@ -88,7 +90,7 @@ public class formData extends AppCompatActivity {
         String milk = mMilk.getText().toString();
         String note = mNote.getText().toString();
 
-        CoffeeModel cfmodel = new CoffeeModel(date,brand,milk,brew,note);
+        CoffeeModel cfmodel = new CoffeeModel(1,date,brand,milk,brew,note);
 
         DataBaseHelperDAO db = new DataBaseHelperDAO(formData.this);
         boolean success = db.add(cfmodel);
@@ -99,7 +101,11 @@ public class formData extends AppCompatActivity {
             Toast.makeText(this, "Success add to the list ", Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(this, "Fail to add to the list", Toast.LENGTH_SHORT).show();
-        //done with the intent
+
+        //put the result to pass back into an Intent and close this Activity
+      //  Intent intent = new Intent();
+      //  intent.putExtra("New Coffee", );
+        setResult(RESULT_OK);
         finish();
 
 
