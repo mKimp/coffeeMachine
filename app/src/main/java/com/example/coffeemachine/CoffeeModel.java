@@ -1,24 +1,28 @@
 package com.example.coffeemachine;
 
+import android.graphics.Bitmap;
+
 import androidx.annotation.NonNull;
 
 public class CoffeeModel   {
 
 
-    int id;
-    String date;
-    String coffeeBrand;
-    String coffeeMilk;
-    String coffeeBrew;
-    String notes;
+    private int id;
+    private String date;
+    private String coffeeBrand;
+    private String coffeeMilk;
+    private String coffeeBrew;
+    private String notes;
+    private String image;
 
-    public CoffeeModel(int id, String date, String coffeeBrand, String coffeeMilk, String coffeeBrew, String notes) {
+    public CoffeeModel(int id, String date, String coffeeBrand, String coffeeMilk, String coffeeBrew, String notes, String image) {
         this.id = id;
         this.date = date;
         this.coffeeBrand = coffeeBrand;
         this.coffeeMilk = coffeeMilk;
         this.coffeeBrew = coffeeBrew;
         this.notes = notes;
+        this.image = image;
     }
 
     @Override
@@ -30,9 +34,16 @@ public class CoffeeModel   {
                 ", coffeeMilk='" + coffeeMilk + '\'' +
                 ", coffeeBrew='" + coffeeBrew + '\'' +
                 ", notes='" + notes + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
     public String getDate() {
         return date;
     }

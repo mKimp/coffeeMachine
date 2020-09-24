@@ -1,10 +1,12 @@
 package com.example.coffeemachine;
 
 import android.content.Context;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +44,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.mydate.setText(mylist.get(position).getDate());
         holder.myMilk.setText(mylist.get(position).getCoffeeMilk());
         holder.myNote.setText(mylist.get(position).getNotes());
+        String img = mylist.get(position).getImage();
+        Uri myUri = Uri.parse(img);
+        holder.myImage.setImageURI(myUri);
+
      //   int pos = mylist.get(position).getId();
      //   holder.myId.setText(pos+".");
         final CoffeeModel md = mylist.get(position);
@@ -76,6 +82,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView myMilk;
         TextView myNote;
         TextView myId;
+        ImageView myImage;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mybrand = itemView.findViewById(R.id.brandtxtview);
@@ -84,6 +91,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             myMilk = itemView.findViewById(R.id.milktxtview);
             myNote = itemView.findViewById(R.id.notetxtview);
             myId   = itemView.findViewById(R.id.IDtxtview);
+            myImage = itemView.findViewById(R.id.imageView);
         }
     }
 }

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //open data base
         db = new DataBaseHelperDAO(MainActivity.this);
         //view all data from the database
-        coffeeList = db.viewAll();
+       coffeeList = db.viewAll();
 
         statusList.setText(R.string.listTitle);
         adapter = new MyAdapter(this, coffeeList);

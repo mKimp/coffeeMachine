@@ -18,8 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:isScrollContainer="true"
         >
-
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="wrap_content"
@@ -78,12 +78,33 @@
             android:hint="@string/notes"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/btnAddData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="formSubmit"
-            android:text="@string/add" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageButton
+                android:id="@+id/btnAddData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="formSubmit"
+                android:src="@drawable/ic_action_add"
+                />
+            <ImageButton
+                android:id="@+id/btnLoadPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="formSubmit"
+                android:src="@drawable/ic_action_upload"
+                android:layout_toEndOf="@+id/btnAddData"
+                />
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:src="@drawable/coffe"
+            android:id="@+id/photo"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"/>
 
 
     </LinearLayout>

@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,15 +24,24 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
     private static final String COLUMN_MILK = "MILK ";
     private static final String COLUMN_NOTE = "NOTE ";
     private static final String COLUMN_DATE = "DATE ";
+    private static final String COLUMN_IMAGE = "IMAGE ";
     List<CoffeeModel> list;
 
     public DataBaseHelperDAO(@Nullable Context context) {
-        super(context, "coffee.db", null, 1);
+        super(context, "coffeee.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE " + INGREDIENTS + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BRAND + " TEXT, " + COLUMN_BREW + " TEXT, " + COLUMN_MILK + " TEXT, " + COLUMN_NOTE + " TEXT, " + COLUMN_DATE + " TEXT)";
+        String createTableStatement = "CREATE TABLE " + INGREDIENTS + " ("
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_BRAND + " TEXT, "
+                + COLUMN_BREW + " TEXT, "
+                + COLUMN_MILK + " TEXT, "
+                + COLUMN_NOTE + " TEXT, "
+                + COLUMN_DATE + " TEXT, "
+                + COLUMN_IMAGE + " TEXT"
+                + ") ";
         db.execSQL(createTableStatement);
     }
 
@@ -49,6 +60,17 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
         cv.put(COLUMN_MILK, cfModel.getCoffeeMilk());
         cv.put(COLUMN_DATE, cfModel.getDate());
         cv.put(COLUMN_NOTE,cfModel.getNotes());
+        cv.put(COLUMN_IMAGE, cfModel.getImage());
+        /*
+        //store the image
+        Bitmap imgtoStoreBitMap = cfModel.getImage();
+        //convert image to Byte Stream
+        ByteArrayOutputStream objectByteArrayOutputStream = new ByteArrayOutputStream();
+        //convert bitmap to byte array;
+        imgtoStoreBitMap.compress(Bitmap.CompressFormat.JPEG,100, objectByteArrayOutputStream);
+        byte[] imageInBytes = objectByteArrayOutputStream.toByteArray();
+        //store image in database
+        cv.put(COLUMN_IMAGE, imageInBytes);*/
 
         long insert = db.insert(INGREDIENTS, null, cv);
         if(insert == -1)
@@ -73,7 +95,8 @@ public class DataBaseHelperDAO extends SQLiteOpenHelper {
                 String coffeeMilk = cursor.getString(3);
                 String coffeeBrew = cursor.getString(2);
                 String notes = cursor.getString(4);
-                CoffeeModel model = new CoffeeModel(id, date,coffeeBrand,coffeeMilk,coffeeBrew, notes);
+                String img = cursor.getString(6);
+                CoffeeModel model = new CoffeeModel(id, date,coffeeBrand,coffeeMilk,coffeeBrew, notes, img);
                 list.add(model);
             } while (cursor.moveToNext());
         }
