@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Daily Coffee</string>
+    <string name="app_name">My Data Coffee</string>
     <string name="add_your_cup_of_coffee_data">Add Data</string>
     <string name="your_cup_of_coffee_data_is_none">Your Cup of Coffee Data is none</string>
     <string name="date">Date</string>

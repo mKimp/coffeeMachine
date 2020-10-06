@@ -10,18 +10,16 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_margin="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/labelDate"
@@ -63,7 +61,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/coffe"
-                android:id="@+id/imageView" />
+                android:id="@+id/imageView"
+                android:padding="1dp"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                />
 
             <TextView
                 android:layout_width="wrap_content"

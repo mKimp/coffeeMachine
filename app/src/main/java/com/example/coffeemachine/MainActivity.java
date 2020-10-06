@@ -3,6 +3,7 @@ package com.example.coffeemachine;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +15,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,26 +32,23 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     String LOG_TAG = MainActivity.class.getSimpleName();
-    TextView statusList;
     RecyclerView recycleview;
     MyAdapter adapter ;
     DataBaseHelperDAO db;
     List<CoffeeModel> coffeeList;
+
     private static final int SECOND_ACTIVITY_REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        statusList = findViewById(R.id.txtviewDate);
         recycleview = findViewById(R.id.recycleView);
-
         //open data base
         db = new DataBaseHelperDAO(MainActivity.this);
         //view all data from the database
        coffeeList = db.viewAll();
 
-        statusList.setText(R.string.listTitle);
         adapter = new MyAdapter(this, coffeeList);
         recycleview.setAdapter(adapter);
         recycleview.setLayoutManager(new LinearLayoutManager(this));
@@ -79,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //add new coffee
-    public void addData(View view) {
+
+    public void addData() {
         Intent intent = new Intent(this, formData.class);
         startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE);
 
@@ -93,11 +96,35 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 assert data != null;
                 coffeeList = db.viewAll();
-                statusList.setText(R.string.listTitle);
                 adapter = new MyAdapter(this, coffeeList);
                 recycleview.setAdapter(adapter);
                 recycleview.setLayoutManager(new LinearLayoutManager(this));
             }
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView searchview = (SearchView) item.getActionView();
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public void addData(MenuItem item) {
+        addData();
     }
 }

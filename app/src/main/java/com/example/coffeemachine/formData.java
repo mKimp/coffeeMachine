@@ -133,9 +133,13 @@ public class formData extends AppCompatActivity {
         String brew = mBrew.getText().toString();
         String milk = mMilk.getText().toString();
         String note = mNote.getText().toString();
-
-        CoffeeModel cfmodel = new CoffeeModel(1, date,brand,milk,brew,note,imageUri.toString());
-
+        CoffeeModel cfmodel;
+        if(imageUri == null) {
+            cfmodel = new CoffeeModel(1, date, brand, milk, brew, note, null);
+        }
+        else{
+            cfmodel = new CoffeeModel(1, date, brand, milk, brew, note, imageUri.toString());
+        }
         DataBaseHelperDAO db = new DataBaseHelperDAO(formData.this);
         boolean success = db.add(cfmodel);
 

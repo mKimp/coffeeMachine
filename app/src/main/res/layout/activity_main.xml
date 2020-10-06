@@ -6,46 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:layout_margin="12dp"
     >
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="25dp">
-
-                <TextView
-                    android:id="@+id/txtviewDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/your_cup_of_coffee_data_is_none"
-                    android:textSize="24sp"
-                    android:textColor="#E91E63" />
-
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="addData"
-                    android:text="@string/add_your_cup_of_coffee_data"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtviewDate" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
@@ -54,6 +16,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="10dp"/>
-
+        android:padding="10dp" />
 </LinearLayout>
