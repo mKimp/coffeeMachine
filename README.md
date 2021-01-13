@@ -13,3 +13,8 @@ create a perfect cup of coffee.
  - Card View
  - Intents
  - Camera user permission
+
+# Want to use or upgrade it
+ - Download Android Studio
+ - git clone https://github.com/mKimp/coffeeMachine.git
+ - Connect the real device to run the app (since we need the camera to take the real pic). The emulator has a very limited capacity.
